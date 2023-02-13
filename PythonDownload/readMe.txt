@@ -8,18 +8,19 @@ Note, this site is currently under development, more images and information
 will be provided!
 ___________________________________________________________________________
 UPDATE LIST:
--2022_07_29 - Test data and example MATLAB code uploaded.
 -2023_02_13 - Published to git repository
 
 ___________________________________________________________________________
-EXAMPLE MATLAB CODE:
+EXAMPLE PYTHON CODE:
 Example code to batch download files can be found in the folder in this 
-directory. 
+directory. Note, the python library is considerably less developed than the 
+MATLAB library. However it can use the MinIO libraries which are powerful
+and more apt to download CoastSnap Images since you do not need to know 
+collection times prior.
 
 ___________________________________________________________________________
 STATION INFORMATION AND COLLECTION TIMES:
 Below is a list of stations where imagery is provided and collection times.
-
 
 FrFTower-------------------------------------------------------------------
 Location: Duck, NC
@@ -90,3 +91,4 @@ Rectifications (Enter in Camera Field):
 'cxgeo'
 
 Note: This camera is undergoing testing and imagery is intermittant
+
