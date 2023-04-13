@@ -3,7 +3,7 @@ import exifread
 f = open("C:/Users/RDCHLBLB/Documents/GitHub/chl_coastalimaging/CHLCI_PublicDownload/20220809T213000Z.FrfTower.c4.dark.jpg", "rb")
 tags = exifread.process_file(f)
 
-#Local Rectified (tags 0-16)
+#Local Rectified (tags 0-16,44)
 print('Station: ' + str(tags.get('EXIF Tag 0xD000','notForThisImageType')))
 print('Product: ' + str(tags.get('EXIF Tag 0xD001','notForThisImageType')))
 print('TimeGMT: ' + str(tags.get('EXIF Tag 0xD002','notForThisImageType')))
@@ -21,6 +21,7 @@ print('WorldCoordSysV_epsg: ' + str(tags.get('EXIF Tag 0xD013','notForThisImageT
 print('GridFile: ' + str(tags.get('EXIF Tag 0xD014','notForThisImageType')))
 print('ExtrinsicFiles: ' + str(tags.get('EXIF Tag 0xD015','notForThisImageType')))
 print('DateProcessed: ' + str(tags.get('EXIF Tag 0xD016','notForThisImageType')))
+print('TidalStage: ' + str(tags.get('EXIF Tag 0xD044','notForThisImageType')))
 
 # Geo Rectified (tags 0-3,6-16, 42-43
 print('WorldLimX: ' + str(tags.get('EXIF Tag 0xD043','notForThisImageType')))
