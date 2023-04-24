@@ -15,9 +15,9 @@
 clear all
 
 %User Input
-t_in=datenum(2023,3,1,16,0,0); % Date and Time of Collect in datenum format
+t_in=datenum(2022,9,6,17,0,0); % Date and Time of Collect in datenum format
 station='FrfTower'; % Station Name (in readMe.txt).
-camera='cx'; % Camera Number
+camera='cxgeo'; % Camera Number
 itype='timex'; % Type of product
 
 saveDir=pwd; % Where you want to save file. Currently set to present working directory

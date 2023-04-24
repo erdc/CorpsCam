@@ -6,7 +6,7 @@
 %  Created by B.Bruder 2022/07/31
 
 
-function [CorpsCam]= CorpsCam_metaDataReader(fname)
+function [CHLCImeta]= CHLci_metaDataReader2(fname)
 
 
 %% Pull Information
@@ -15,77 +15,87 @@ try
 A=I.DigitalCamera.UnknownTags;
 numVal=length(A);
 
+
+switch numVal
 %% Oblique
 
-if length(A)==37
-CorpsCam.Station=A(1).Value;
-CorpsCam.Product=A(2).Value;
-CorpsCam.TimeGMT=A(3).Value;
-CorpsCam.Units=A(4).Value;
-CorpsCam.LocalOriginWorldX=A(5).Value;
-CorpsCam.LocalOriginWorldY=A(6).Value;
-CorpsCam.LocalAngle=A(7).Value;
-CorpsCam.WorldCoordSysH_epsg=A(8).Value;
-CorpsCam.WaterLevel=A(9).Value;
-CorpsCam.WaterLevelSource=A(10).Value;
-CorpsCam.WorldCoordSysV_epsg=A(11).Value;
-CorpsCam.ExtrinsicFiles=A(12).Value;
-CorpsCam.DateProcessed=A(13).Value;
-CorpsCam.Camera=A(14).Value;
-CorpsCam.ExtrinsicsWorld=[A(15).Value A(16).Value A(17).Value A(18).Value A(19).Value A(20).Value] ;
-CorpsCam.ExtrinsicsLocal=[A(21).Value A(22).Value A(23).Value A(24).Value A(20).Value A(26).Value] ;
-CorpsCam.Intrinsics=[A(27).Value A(28).Value A(29).Value A(30).Value A(31).Value A(32).Value A(33).Value A(34).Value A(35).Value A(36).Value A(37).Value A(37).Value] ;
-end
+    case 38
+CHLCImeta.Station=A(1).Value;
+CHLCImeta.Product=A(2).Value;
+CHLCImeta.TimeGMT=A(3).Value;
+CHLCImeta.Units=A(4).Value;
+CHLCImeta.LocalOriginWorldX=A(5).Value;
+CHLCImeta.LocalOriginWorldY=A(6).Value;
+CHLCImeta.LocalAngle=A(7).Value;
+CHLCImeta.WorldCoordSysH_epsg=A(8).Value;
+CHLCImeta.WaterLevel=A(9).Value;
+CHLCImeta.WaterLevelSource=A(10).Value;
+CHLCImeta.WorldCoordSysV_epsg=A(11).Value;
+CHLCImeta.ExtrinsicFiles=A(12).Value;
+CHLCImeta.DateProcessed=A(13).Value;
+CHLCImeta.Camera=A(14).Value;
+CHLCImeta.ExtrinsicsWorld=[A(15).Value A(16).Value A(17).Value A(18).Value A(19).Value A(20).Value] ;
+CHLCImeta.ExtrinsicsLocal=[A(21).Value A(22).Value A(23).Value A(24).Value A(20).Value A(26).Value] ;
+CHLCImeta.Intrinsics=[A(27).Value A(28).Value A(29).Value A(30).Value A(31).Value A(32).Value A(33).Value A(34).Value A(35).Value A(36).Value A(37).Value A(37).Value] ;
+CHLCImeta.TidalStage=A(38).Value;
+
 
 %% Local Rectification
 
-if length(A)==17
-CorpsCam.Station=A(1).Value;
-CorpsCam.Product=A(2).Value;
-CorpsCam.TimeGMT=A(3).Value;
-CorpsCam.Units=A(4).Value;
+    case 18
+CHLCImeta.Station=A(1).Value;
+CHLCImeta.Product=A(2).Value;
+CHLCImeta.TimeGMT=A(3).Value;
+CHLCImeta.Units=A(4).Value;
 xlm=strsplit(A(5).Value);
-CorpsCam.LocalLimX=[str2num(xlm{1}) str2num(xlm{2})];
+CHLCImeta.LocalLimX=[str2num(xlm{1}) str2num(xlm{2})];
 xlm=strsplit(A(6).Value);
-CorpsCam.LocalLimY=[str2num(xlm{1}) str2num(xlm{2})];
-CorpsCam.PixResolution=A(7).Value;
-CorpsCam.LocalOriginWorldX=A(8).Value;
-CorpsCam.LocalOriginWorldY=A(9).Value;
-CorpsCam.LocalAngle=A(10).Value;
-CorpsCam.WorldCoordSysH_epsg=A(11).Value;
-CorpsCam.WaterLevel=A(12).Value;
-CorpsCam.WaterLevelSource=A(13).Value;
-CorpsCam.WorldCoordSysV_epsg=A(14).Value;
-CorpsCam.GridFIle=A(15).Value;
-CorpsCam.ExtrinsicFiles=A(16).Value;
-CorpsCam.DateProcessed=A(17).Value;
-end
+CHLCImeta.LocalLimY=[str2num(xlm{1}) str2num(xlm{2})];
+CHLCImeta.PixResolution=A(7).Value;
+CHLCImeta.LocalOriginWorldX=A(8).Value;
+CHLCImeta.LocalOriginWorldY=A(9).Value;
+CHLCImeta.LocalAngle=A(10).Value;
+CHLCImeta.WorldCoordSysH_epsg=A(11).Value;
+CHLCImeta.WaterLevel=A(12).Value;
+CHLCImeta.WaterLevelSource=A(13).Value;
+CHLCImeta.WorldCoordSysV_epsg=A(14).Value;
+CHLCImeta.GridFIle=A(15).Value;
+CHLCImeta.ExtrinsicFiles=A(16).Value;
+CHLCImeta.DateProcessed=A(17).Value;
+CHLCImeta.TidalStage=A(18).Value;
+
 
 
 %% World Rectification
 
-if length(A)==14
-CorpsCam.Station=A(1).Value;
-CorpsCam.Product=A(2).Value;
-CorpsCam.TimeGMT=A(3).Value;
-CorpsCam.Units=A(4).Value;
+case 15
+CHLCImeta.Station=A(1).Value;
+CHLCImeta.Product=A(2).Value;
+CHLCImeta.TimeGMT=A(3).Value;
+CHLCImeta.Units=A(4).Value;
 xlm=strsplit(A(14).Value);
-CorpsCam.WorldLimX=[str2num(xlm{1}) str2num(xlm{2})];
+CHLCImeta.WorldLimX=[str2num(xlm{1}) str2num(xlm{2})];
 xlm=strsplit(A(13).Value);
-CorpsCam.WorldLimY=[str2num(xlm{1}) str2num(xlm{2})];
-CorpsCam.PixResolution=A(5).Value;
-CorpsCam.WorldCoordSysH_epsg=A(6).Value;
-CorpsCam.WaterLevel=A(7).Value;
-CorpsCam.WaterLevelSource=A(8).Value;
-CorpsCam.WorldCoordSysV_epsg=A(9).Value;
-CorpsCam.GridFile=A(10).Value;
-CorpsCam.ExtrinsicFiles=A(11).Value;
-CorpsCam.DateProcessed=A(12).Value;
+CHLCImeta.WorldLimY=[str2num(xlm{1}) str2num(xlm{2})];
+CHLCImeta.PixResolution=A(5).Value;
+CHLCImeta.WorldCoordSysH_epsg=A(6).Value;
+CHLCImeta.WaterLevel=A(7).Value;
+CHLCImeta.WaterLevelSource=A(8).Value;
+CHLCImeta.WorldCoordSysV_epsg=A(9).Value;
+CHLCImeta.GridFile=A(10).Value;
+CHLCImeta.ExtrinsicFiles=A(11).Value;
+CHLCImeta.DateProcessed=A(12).Value;
+CHLCImeta.TidalStage=A(15).Value;
+
+
+    otherwise
+        disp('No MetaData Available')
+    CHLCImeta=[];
 end
 
 catch
     disp('No MetaData Available')
-    CorpsCam=[];
+    CHLCImeta=[];
 end
 
 
