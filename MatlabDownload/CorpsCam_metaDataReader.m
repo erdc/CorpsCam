@@ -35,7 +35,7 @@ CHLCImeta.ExtrinsicFiles=A(12).Value;
 CHLCImeta.DateProcessed=A(13).Value;
 CHLCImeta.Camera=A(14).Value;
 CHLCImeta.ExtrinsicsWorld=[A(15).Value A(16).Value A(17).Value A(18).Value A(19).Value A(20).Value] ;
-CHLCImeta.ExtrinsicsLocal=[A(21).Value A(22).Value A(23).Value A(24).Value A(20).Value A(26).Value] ;
+CHLCImeta.ExtrinsicsLocal=[A(21).Value A(22).Value A(23).Value A(24).Value A(25).Value A(26).Value] ;
 CHLCImeta.Intrinsics=[A(27).Value A(28).Value A(29).Value A(30).Value A(31).Value A(32).Value A(33).Value A(34).Value A(35).Value A(36).Value A(37).Value A(37).Value] ;
 CHLCImeta.TidalStage=A(38).Value;
 
